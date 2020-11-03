@@ -4,6 +4,7 @@
 # this file to always be loaded, without a need to explicitly require it in any
 # files.
 #
+
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
 # will add to the boot time of your test suite on EVERY test run, even for an
@@ -14,6 +15,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  ENV['ENVIRONMENT'] = 'test'
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -97,4 +99,22 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  require 'capybara/rspec'
+  require 'simplecov'
+  require 'simplecov-console'
+
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::Console,
+    # Want a nice code coverage website? Uncomment this next line!
+    # SimpleCov::Formatter::HTMLFormatter
+  ])
+  SimpleCov.start
+
+  # For accurate test coverage measurements, require your code AFTER 'SimpleCov.start'
+
+  ENV['RACK_ENV'] = 'test'
+
+  require File.join(File.dirname(__FILE__), '..', 'app.rb')
+  Capybara.app = Blog_App
+  require 'features/web_helpers.rb'
 end

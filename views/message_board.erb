@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="/css/message_board.css">
 <head>
     <h1> Weclome <%=@username%></h1>
 </head>
@@ -8,9 +9,10 @@
     <%@messages.each do |message|%>
         <li>
             <p>Message ID: <%=message.id%></p>
-            <%=message.message%>
+            <%=message.message%> <br>
+            <a href="/delete_message">Delete this message</a> <br><br>  
         </li>
     <%end%>
-</ul>
+ </ul>
 
 </body>

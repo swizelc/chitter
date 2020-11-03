@@ -29,6 +29,8 @@ class Blog_App < Sinatra::Base
   end  
 
   get '/delete_message' do 
+    Message_board.delete(message)
+    redirect '/message_board'
   end 
 
 

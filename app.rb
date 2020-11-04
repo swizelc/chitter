@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require_relative 'lib/message_board'
 class Blog_App < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     erb :index
@@ -28,8 +28,8 @@ class Blog_App < Sinatra::Base
     redirect '/message_board'
   end  
 
-  get '/delete_message' do 
-    Message_board.delete(message)
+  delete '/messages/:id' do
+    Message_board.delete(id: params[:id])
     redirect '/message_board'
   end 
 

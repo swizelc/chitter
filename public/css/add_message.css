@@ -1,0 +1,12 @@
+
+body{
+    background-color: rgb(232, 182, 199);
+    margin-left: 33%;
+}
+
+textarea{
+    resize: none;
+}
+label {
+    font-size: 25px;
+}

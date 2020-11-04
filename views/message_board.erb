@@ -1,16 +1,20 @@
 <link rel="stylesheet" type="text/css" href="/css/message_board.css">
 <head>
-    <h1> Weclome <%=@username%></h1>
+    <h1> Welcome <%=@username%></h1>
 </head>
 
 <body>
- <a href='/add_message'>Add a new message</a> <br><br>
- <ul>
+ <a href='/add_message'>Add a new post</a> <br><br>
+ <ul style="list-style: none;">
     <%@messages.each do |message|%>
-        <li>
+        <li class='message'>
             <p>Message ID: <%=message.id%></p>
             <%=message.message%> <br>
-            <a href="/delete_message">Delete this message</a> <br><br>  
+            <br>
+            <form action="/messages/<%=message.id%>"method="post">
+                <input type="hidden" name="_method"value="DELETE">
+                <input type='submit'value="Delete">
+            </form>
         </li>
     <%end%>
  </ul>

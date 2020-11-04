@@ -102,6 +102,7 @@ RSpec.configure do |config|
   require 'capybara/rspec'
   require 'simplecov'
   require 'simplecov-console'
+  require 'test_setup'
 
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::Console,
@@ -113,6 +114,10 @@ RSpec.configure do |config|
   # For accurate test coverage measurements, require your code AFTER 'SimpleCov.start'
 
   ENV['RACK_ENV'] = 'test'
+
+  config.before(:each) do
+    clear_test_db
+  end
 
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
   Capybara.app = Blog_App

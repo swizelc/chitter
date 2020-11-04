@@ -5,23 +5,21 @@ RSpec.describe Message_board do
         it 'returns all messages' do
             Message_board.add("Hello")
             Message_board.add("Hi")
-            message = Message_board.all
-            expect(message).to include "Hello"
-            expect(message).to include "Hi"
-            Message_board.delete("Hello")
-            Message_board.delete("Hi")
+            messages = Message_board.all
+            expect(messages.first.message).to include "Hello"
+            expect(messages[1].message).to include "Hi"
+            
         end 
     end 
     describe '.add' do 
         it 'Adds a new message to the db' do 
             expect(Message_board.add("Hello")).to eq true
-            Message_board.delete("Hello")
         end 
     end 
     describe '.delete' do 
         it 'Adds a new message to the db' do 
             Message_board.add("Hello")
-            expect(Message_board.delete("Hello")).to eq true
+            expect(Message_board.delete(id: "1")).to eq true
         end 
     end
 end 

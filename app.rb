@@ -1,16 +1,33 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'lib/message_board'
+require_relative 'lib/user'
+require_relative 'lib/database_connection_setup'
 class Blog_App < Sinatra::Base
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     erb :index
   end
 
   post '/messages' do
+    if User.check_login(username: params[:username], password: params[:password])
+      session[:username] = params[:username]
+      redirect '/message_board'
+    else
+      flash[:notice] = 'Incorrect password!'
+      redirect '/'
+    end
+  end
+
+  # Post for creating new account
+  post '/messages/new_user' do
+    User.create_user(username: params[:username], password: params[:password])
     session[:username] = params[:username]
     redirect '/message_board'
-  end  
+  end
+
   
   get '/message_board' do 
     @username = session[:username]

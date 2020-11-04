@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'pg'
+
 
 group :test do
   gem 'capybara'

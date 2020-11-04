@@ -8,7 +8,6 @@
  <ul style="list-style: none;">
     <%@messages.each do |message|%>
         <li class='message'>
-            <p>Message ID: <%=message.id%></p>
             <%=message.message%> <br>
             <br>
             <form action="/messages/<%=message.id%>"method="post">
@@ -16,6 +15,7 @@
                 <input type='submit'value="Delete">
             </form>
         </li>
+        <br>
     <%end%>
  </ul>
 

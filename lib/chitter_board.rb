@@ -1,6 +1,7 @@
 require 'pg'
-require_relative 'chitter_board'
+require_relative 'peep'
 require_relative 'database_connection'
+
 class Chitter_board 
     
     def self.all
@@ -10,7 +11,7 @@ class Chitter_board
         end
     end
     
-    def self.add(peep, user_id)
+    def self.add(peep:, user_id:)
         DatabaseConnection.query("INSERT INTO peeps (message, user_id) VALUES ('#{peep}', '#{user_id}');")
         true
     end

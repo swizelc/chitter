@@ -36,7 +36,7 @@ class Chitter < Sinatra::Base
 
   
   get '/chitter_board' do 
-    @user = User.find_user(User.current_user)
+    @user = User.find_user(id: User.current_user)
     @peeps = Chitter_board.all
     erb :chitter_board
   end

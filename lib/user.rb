@@ -31,7 +31,7 @@ class User
       exists = true if user['username'] == username 
     end 
     return false if !exists
-    result = DatabaseConnection.query("SELECT password FROM users WHERE username LIKE '#{username}';")
+    result = DatabaseConnection.query("SELECT * FROM users WHERE username LIKE '#{username}';")
     if result[0]['password'] == password
       @current_user = result[0]['id']
       p @current_user.inspect
@@ -40,7 +40,7 @@ class User
       false
     end
   end
-  def self.find_user(id)
+  def self.find_user(id:)
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = #{id};")
     User.new(result[0]['id'], result[0]['username'])
   end

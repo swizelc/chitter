@@ -8,7 +8,7 @@
  <ul style="list-style: none;">
     <%@peeps.each do |peep|%>
         <li class='peep'>
-            <%=peep.peep%> <br>
+            <%=peep.message%> <br>
             <br>
             <%if @user.id == peep.user_id%>
                 <form action="/peeps/<%=peep.id%>"method="post">

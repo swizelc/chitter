@@ -1,5 +1,5 @@
 li {
-    border:5px solid rgb(247, 122, 143);
+    border:5px solid rgb(180, 122, 247);
     background-color: white;
     padding: 10px;
     width: 400px;
@@ -8,7 +8,7 @@ li {
 }
 
 body{
-    background-color: rgb(232, 182, 199);
+    background-color: rgb(211, 182, 232);
     text-align: center;
 }
 
@@ -30,5 +30,5 @@ h1{
     position: relative;
     right: 160;
     top: 28;
-    color: rgb(247, 122, 143);
+    color: rgb(189, 122, 247);
 }

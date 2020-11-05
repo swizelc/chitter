@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
 
   # Post for creating new account
   post '/peeps/new_user' do
-    if User.create_user(username: params[:username], password: params[:password]) == false 
+    if User.create_user(username: params[:username_new], password: params[:password_new]) == false 
       flash[:notice] = 'Username taken!'
       redirect '/'
       

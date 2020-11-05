@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="/css/message_board.css">
+<head>
+    <h1> Welcome <%=@user.username%></h1>
+</head>
+
+<body>
+ <a id="new_peep" href='/add_peep'>Add a new peep</a> <br><br>
+ <ul style="list-style: none;">
+    <%@peeps.each do |peep|%>
+        <li class='peep'>
+            <%=peep.peep%> <br>
+            <br>
+            <%if @user.id == peep.user_id%>
+                <form action="/peeps/<%=peep.id%>"method="post">
+                    <input type="hidden" name="_method"value="DELETE">
+                    <input type='submit'value="Delete">
+                </form>
+            <%end%>
+        </li>
+        <br>
+    <%end%>
+ </ul>
+
+</body>

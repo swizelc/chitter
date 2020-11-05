@@ -19,3 +19,16 @@ h1{
     font-size: 50px;
 
 }
+
+#delete{
+    position: relative;
+    left: 200;
+    top: 63;
+}
+
+#date{
+    position: relative;
+    right: 160;
+    top: 28;
+    color: rgb(247, 122, 143);
+}

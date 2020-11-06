@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/css/message_board.css">
 <head>
     <h1> Welcome <%=@user.username%></h1>
@@ -13,13 +13,23 @@
             <%if @user.id == peep.user_id%>
                 <form action="/peeps/<%=peep.id%>"method="post">
                     <input type='hidden' name='_method'value='DELETE'>
-                    <input type="submit" id='delete' value="x">
+                    <button type='submit' name='x' class='btn'><i class="fa fa-trash"></i></button>
                 </form>
             <%end%>
-        <p id='date'><%=peep.date%></p>
+        <p id='date'><%=peep.date%>
+            <form action="/chitter/<%=peep.id%>"method="post">
+                <input type='hidden' name='_method' value= 'PATCH'>
+                <button type='submit' name='LIKE' id='like_btn'class='btn'><i class="fa fa-heart"></i><%=peep.likes%></button>
+            </form>
+        </p>
         </li>
         <br>
     <%end%>
+    <form id='filter' action="/searchresults"method="post">
+        <label> Enter a keyword to filter through peeps </label>
+        <input type='text' name='keyword'>
+        <input type="submit" name='search'id='search' value="Search">
+    </form>
  </ul>
 
 </body>

@@ -57,5 +57,21 @@ class Chitter < Sinatra::Base
     redirect '/chitter_board'
   end 
 
+  post '/searchresults' do
+    session[:results] = Chitter_board.filter(keyword: params[:keyword])
+    redirect '/searchresults'
+  end 
+
+  get '/searchresults' do
+    @user = User.find_user(id: User.current_user)
+    @results = session[:results]
+    erb :search
+  end 
+
+  patch '/chitter/:id' do 
+    Chitter_board.like(id: params[:id])
+    redirect '/chitter_board'
+  end 
+
 
 end

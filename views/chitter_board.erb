@@ -1,11 +1,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/css/message_board.css">
 <head>
-    <h1> Welcome <%=@user.username%></h1>
+    <h1>~ Welcome <%=@user.username%> ~</h1>
 </head>
 
 <body>
  <a id="new_peep" href='/add_peep'>Post a new peep</a> <br><br>
+ <form id='filter' action="/searchresults"method="post">
+        <label> Enter a keyword to filter through peeps </label>
+        <input type='text' name='keyword'>
+        <input type="submit" name='search'id='search' value="Search">
+</form>
  <ul style="list-style: none;">
     <%@peeps.reverse.each do |peep|%>
         <li class='peep'>
@@ -25,11 +30,7 @@
         </li>
         <br>
     <%end%>
-    <form id='filter' action="/searchresults"method="post">
-        <label> Enter a keyword to filter through peeps </label>
-        <input type='text' name='keyword'>
-        <input type="submit" name='search'id='search' value="Search">
-    </form>
+    
  </ul>
 
 </body>

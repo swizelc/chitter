@@ -1,15 +1,18 @@
 li {
-    border:5px solid rgb(180, 122, 247);
-    background-color: white;
+    border:5px solid rgb(139, 122, 247);
+    background-color: rgba(255, 255, 255, 0.495);
     padding: 10px;
     width: 400px;
     text-align: center;
     margin-left: 33%;
+    border-style: outset;
 }
 
 body{
-    background-color: rgb(211, 182, 232);
+    background-color: rgb(175, 177, 238);
     text-align: center;
+    border-style: double;
+    border-width: 20px;
 }
 
 h1{
@@ -20,15 +23,18 @@ h1{
 
 }
 
-#delete{
+.btn{
     position: relative;
-    left: 200;
-    top: 63;
+    right: 40;
+    top: 70;
 }
+
 
 #date{
     position: relative;
-    right: 160;
-    top: 28;
-    color: rgb(189, 122, 247);
+    color: rgb(153, 122, 247);
+    writing-mode: horizontal-tb;
+}
+#new_peep{
+    font-size: 25px;
 }

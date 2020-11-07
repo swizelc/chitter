@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/css/message_board.css">
-<head>
+<head> <br>
     <h1>~ Welcome <%=@user.username%> ~</h1>
 </head>
 
 <body>
  <a id="new_peep" href='/add_peep'>Post a new peep</a> <br><br>
  <form id='filter' action="/searchresults"method="post">
-        <label> Enter a keyword to filter through peeps </label>
-        <input type='text' name='keyword'>
+        <label> Filter through peeps </label>
+        <input type='text' name='keyword'placeholder="Enter keyword">
         <input type="submit" name='search'id='search' value="Search">
 </form>
  <ul style="list-style: none;">
@@ -21,12 +21,11 @@
                     <button type='submit' name='x' class='btn'><i class="fa fa-trash"></i></button>
                 </form>
             <%end%>
-        <p id='date'><%=peep.date%>
+            <p id='date'><%=peep.date%></p>
             <form action="/chitter/<%=peep.id%>"method="post">
                 <input type='hidden' name='_method' value= 'PATCH'>
-                <button type='submit' name='LIKE' id='like_btn'class='btn'><i class="fa fa-heart"></i><%=peep.likes%></button>
+                <button type='submit' name='LIKE' id='like_btn'class='lbtn'><i class="fa fa-heart"></i><%=peep.likes%></button>
             </form>
-        </p>
         </li>
         <br>
     <%end%>

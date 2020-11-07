@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/index.css">
-<head> 
+<head> <br>
     <h1> Chitter </h1>
 </head>
 
@@ -7,19 +7,19 @@
   <h3> Log in: </h3>
   <p class='error_message'><%= flash[:notice] %></p>
   <form action="/peeps" method="post">
-    <label for="username">Enter your username here:</label>
-    <input type="text" name="username">
-    <label for="password">Enter your password here:</label>
-    <input type="password" name="password">
+    <label for="username">Username: </label>
+    <input type="text" name="username"><br>
+    <label for="password">Password: </label>
+    <input type="password" name="password"><br><br>
     <input type="submit" value="Log in">
   </form>
   <br>
   <h3> Create an account: </h3>
   <form action="/peeps/new_user" method="post">
-    <label for="username">Enter your username here:</label>
-    <input type="text" name="username_new">
-    <label for="password">Enter your password here:</label>
-    <input type="password" name="password_new">
+    <label for="username">Username: </label>
+    <input type="text" name="username_new"><br>
+    <label for="password">Password: </label>
+    <input type="password" name="password_new"><br><br>
     <input type="submit" value="Sign up">
   </form>
 </body>
